@@ -1,47 +1,38 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import './App.css'
 import Navbar from './components/Navbar/Navbar'
 import News from './components/News/News'
-import {
-  HashRouter as Router,
-  Route,
-  Routes
-} from "react-router-dom"
+import { HashRouter as Router, Route, Routes } from "react-router-dom"
 import LoadingBar from 'react-top-loading-bar'
 
-export default class App extends Component {
-  pageSize = 8;
-  country = 'us';
-  apiKey = process.env.REACT_APP_NEW_API
+export default function App() {
+  const pageSize = 8;
+  const country = 'us';
+  const apiKey = process.env.REACT_APP_NEW_API_1
+  
+  // const apiKey = '63452179f3748edd2b7705e88091d6c2'
 
-  state = {
-    progress: 0
-  }
+  const [progress, setProgress] = useState(0);
 
-  setProgress = (progress) => {
-    this.setState({progress: progress})
-  }
-
-  render() {
-    return (
-      <>
-        <Router>
+  return (
+    <>
+      <Router>
           <LoadingBar
             color='#f11946'
             height={4}
-            progress={this.state.progress} />
+            progress={progress} />
             <Navbar />
           <Routes>
-            <Route exact path="/" element={<News setProgress={this.setProgress} apiKey={this.apiKey} key='general' pageSize={this.pageSize} country={this.country} category='general' badgeColor='warning' />} />
-            <Route exact path="/business" element={<News setProgress={this.setProgress} apiKey={this.apiKey} key='business' pageSize={this.pageSize} country={this.country} category='business' badgeColor='success' />} />
-            <Route exact path="/entertainment" element={<News setProgress={this.setProgress} apiKey={this.apiKey} key='entertainment' pageSize={this.pageSize} country={this.country} category='entertainment' badgeColor='danger' />} />
-            <Route exact path="/health" element={<News setProgress={this.setProgress} apiKey={this.apiKey} key='health' pageSize={this.pageSize} country={this.country} category='health' badgeColor='info' />} />
-            <Route exact path="/science" element={<News setProgress={this.setProgress} apiKey={this.apiKey} key='science' pageSize={this.pageSize} country={this.country} category='science' badgeColor='primary' />} />
-            <Route exact path="/sports" element={<News setProgress={this.setProgress} apiKey={this.apiKey} key='sports' pageSize={this.pageSize} country={this.country} category='sports' badgeColor='light' />} />
-            <Route exact path="/technology" element={<News setProgress={this.setProgress} apiKey={this.apiKey} key='technology' pageSize={this.pageSize} country={this.country} category='technology' badgeColor='dark' />} />
+            <Route exact path="/" element={<News setProgress={setProgress} apiKey={apiKey} key='general' pageSize={pageSize} country={country} category='general' badgeColor='warning' />} />
+            <Route exact path="/business" element={<News setProgress={setProgress} apiKey={apiKey} key='business' pageSize={pageSize} country={country} category='business' badgeColor='success' />} />
+            <Route exact path="/entertainment" element={<News setProgress={setProgress} apiKey={apiKey} key='entertainment' pageSize={pageSize} country={country} category='entertainment' badgeColor='danger' />} />
+            <Route exact path="/health" element={<News setProgress={setProgress} apiKey={apiKey} key='health' pageSize={pageSize} country={country} category='health' badgeColor='info' />} />
+            <Route exact path="/science" element={<News setProgress={setProgress} apiKey={apiKey} key='science' pageSize={pageSize} country={country} category='science' badgeColor='primary' />} />
+            <Route exact path="/sports" element={<News setProgress={setProgress} apiKey={apiKey} key='sports' pageSize={pageSize} country={country} category='sports' badgeColor='light' />} />
+            <Route exact path="/technology" element={<News setProgress={setProgress} apiKey={apiKey} key='technology' pageSize={pageSize} country={country} category='technology' badgeColor='dark' />} />
           </Routes>
         </Router>
-      </>
-    )
-  }
+    </>
+  )
 }
+

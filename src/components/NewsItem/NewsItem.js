@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './NewsItem.css'
 
-export default class NewsItem extends Component {
-  render() {
-    let { title, source, description, imageUrl, author, date, newsUrl, badgeColor } = this.props;
-    return (
-      <>
-        <div className="my-3 d-flex justify-content-center">
+export default function NewsItem(props) {
+  let { title, source, description, imageUrl, author, date, newsUrl, badgeColor } = props;
+
+  return (
+    <>
+      <div className="my-3 d-flex justify-content-center">
           <div className="card" style={{ width: "18rem" }}>
             <span className={`position-absolute top-0 start-50 translate-middle badge rounded-pill text-bg-${badgeColor}`} style={{zIndex: '1'}}>
               {source}
@@ -20,7 +20,6 @@ export default class NewsItem extends Component {
             </div>
           </div>
         </div>
-      </>
-    )
-  }
+    </>
+  )
 }
