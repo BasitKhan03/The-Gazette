@@ -9,9 +9,6 @@ export default function App() {
   const pageSize = 8;
   const country = 'us';
   const apiKey = process.env.REACT_APP_NEW_API_1
-  
-  // const apiKey = '63452179f3748edd2b7705e88091d6c2'
-
   const [progress, setProgress] = useState(0);
 
   return (
@@ -31,6 +28,8 @@ export default function App() {
             <Route exact path="/sports" element={<News setProgress={setProgress} apiKey={apiKey} key='sports' pageSize={pageSize} country={country} category='sports' badgeColor='light' />} />
             <Route exact path="/technology" element={<News setProgress={setProgress} apiKey={apiKey} key='technology' pageSize={pageSize} country={country} category='technology' badgeColor='dark' />} />
           </Routes>
+
+          
         </Router>
     </>
   )
