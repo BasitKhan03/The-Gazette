@@ -8,10 +8,7 @@ import LoadingBar from 'react-top-loading-bar'
 export default function App() {
   const pageSize = 8;
   const country = 'us';
-
-  // const apiKey = process.env.REACT_APP_NEW_API_1
-  const apiKey = 'ab433c65ca2c0e5a64033f1b34bc8778'
-
+  const apiKey = process.env.REACT_APP_NEW_API_1
   const [progress, setProgress] = useState(0);
 
   return (
@@ -33,7 +30,7 @@ export default function App() {
           </Routes> */}
 
           <Routes>
-            <Route exact path="/" element={<News setProgress={setProgress} apiKey={apiKey} key='general' pageSize={pageSize} country={country} category='general' badgeColor='warning' />} />
+            <Route exact path="/" element={<News setProgress={setProgress} apiKey={apiKey} key='general' pageSize={pageSize} country={country} category='world' badgeColor='warning' />} />
             <Route exact path="/business" element={<News setProgress={setProgress} apiKey={apiKey} key='business' pageSize={pageSize} country={country} category='business' badgeColor='success' />} />
             <Route exact path="/entertainment" element={<News setProgress={setProgress} apiKey={apiKey} key='entertainment' pageSize={pageSize} country={country} category='entertainment' badgeColor='danger' />} />
             <Route exact path="/health" element={<News setProgress={setProgress} apiKey={apiKey} key='health' pageSize={pageSize} country={country} category='health' badgeColor='info' />} />

@@ -9,6 +9,7 @@ export default function News(props) {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(false);
   // const [page, setPage] = useState(0);
+  const [page, setPage] = useState('');
   const [totalResults, setTotalResults] = useState(0);
 
   const capitalizeFirstLetter = (string) => {
@@ -37,7 +38,7 @@ export default function News(props) {
   const updateNewsPage = async () => {
     props.setProgress(10);
 
-    const url = `http://gnews.io/api/v4/top-headlines?country=${props.country}&category=${props.category}&apikey=ab433c65ca2c0e5a64033f1b34bc8778`;
+    const url = `https://newsdata.io/api/1/news?country=${props.country}&category=${props.category}&apikey=pub_17627c5285faff7a24f7478683aec094f887e`;
 
     setLoading(true);
     let data = await fetch(url);
@@ -46,8 +47,9 @@ export default function News(props) {
     let parsedData = await data.json();
     props.setProgress(70);
 
-    setArticles(parsedData.articles);
-    setTotalResults(parsedData.totalArticles);
+    setArticles(parsedData.results);
+    setPage(parsedData.nextPage)
+    setTotalResults(parsedData.totalResults);
     setLoading(false);
 
     props.setProgress(100);
@@ -71,12 +73,13 @@ export default function News(props) {
   // }
 
   const fetchMoreData = async () => {
-    const url = `http://gnews.io/api/v4/top-headlines?country=${props.country}&category=${props.category}&apikey=ab433c65ca2c0e5a64033f1b34bc8778`;
+    const url = `https://newsdata.io/api/1/news?country=${props.country}&category=${props.category}&page=${page}&apikey=pub_17627c5285faff7a24f7478683aec094f887e`;
 
     let data = await fetch(url);
     let parsedData = await data.json();
 
-    setArticles(articles.concat(parsedData.articles));
+    setPage(parsedData.nextPage);
+    setArticles(articles.concat(parsedData.results));
     setTotalResults(parsedData.totalArticles);
   }
 
@@ -98,7 +101,9 @@ export default function News(props) {
     <>
       <div className='container my-5'>
         <div>
-          <h3 className='mb-4 mainHeading'>{props.category === 'general' ? 'The Gazette - Top News Headlines' : `The Gazette - Top ${capitalizeFirstLetter(props.category)} Headlines`}</h3>
+          {/* <h3 className='mb-4 mainHeading'>{props.category === 'general' ? 'The Gazette - Top News Headlines' : `The Gazette - Top ${capitalizeFirstLetter(props.category)} Headlines`}</h3> */}
+
+          <h3 className='mb-4 mainHeading'>{props.category === 'world' ? 'The Gazette - Top News Headlines' : `The Gazette - Top ${capitalizeFirstLetter(props.category)} Headlines`}</h3>
         </div>
 
         {loading && <Spinner />}
@@ -121,8 +126,8 @@ export default function News(props) {
           <div className="container">
             <div className='row'>
               {articles.map((element) => {
-                return <div className="col-lg-3 col-md-4 col-sm-6 col-12" key={element.url}>
-                  <NewsItem title={element.title} description={element.description ? element.description.slice(0, 70) : element.description} imageUrl={element.image} newsUrl={element.url} author={element.source.name} date={element.publishedAt} source={element.source.name} badgeColor={props.badgeColor} />
+                return <div className="col-lg-3 col-md-4 col-sm-6 col-12" key={element.link}>
+                  <NewsItem title={element.title} description={element.description ? element.description.slice(0, 70) : element.description} imageUrl={element.image_url} newsUrl={element.link} author={element.creator} date={element.pubDate} source={element.source_id} badgeColor={props.badgeColor} />
                 </div>
               })}
             </div>
