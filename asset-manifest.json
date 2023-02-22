@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.411d636b.css",
-    "main.js": "/static/js/main.d916b5d6.js",
-    "static/js/787.28cb0dcd.chunk.js": "/static/js/787.28cb0dcd.chunk.js",
-    "index.html": "/index.html",
-    "main.411d636b.css.map": "/static/css/main.411d636b.css.map",
-    "main.d916b5d6.js.map": "/static/js/main.d916b5d6.js.map",
-    "787.28cb0dcd.chunk.js.map": "/static/js/787.28cb0dcd.chunk.js.map"
+    "main.css": "/The-Gazette/static/css/main.411d636b.css",
+    "main.js": "/The-Gazette/static/js/main.f49f48a5.js",
+    "static/js/787.28cb0dcd.chunk.js": "/The-Gazette/static/js/787.28cb0dcd.chunk.js",
+    "index.html": "/The-Gazette/index.html",
+    "main.411d636b.css.map": "/The-Gazette/static/css/main.411d636b.css.map",
+    "main.f49f48a5.js.map": "/The-Gazette/static/js/main.f49f48a5.js.map",
+    "787.28cb0dcd.chunk.js.map": "/The-Gazette/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.411d636b.css",
-    "static/js/main.d916b5d6.js"
+    "static/js/main.f49f48a5.js"
   ]
 }
