@@ -8,14 +8,14 @@ import InfiniteScroll from "react-infinite-scroll-component"
 export default function News(props) {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(false);
-  // const [page, setPage] = useState(0);
-  const [page, setPage] = useState('');
+  const [page, setPage] = useState(0);
   const [totalResults, setTotalResults] = useState(0);
 
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
+  /// --| NewsApi |-- ///
   // const updateNewsPage = async () => {
   //   props.setProgress(10);
 
@@ -35,10 +35,11 @@ export default function News(props) {
   //   props.setProgress(100);
   // }
 
+  /// --| NY Times Api |-- ///
   const updateNewsPage = async () => {
     props.setProgress(10);
 
-    const url = `https://newsdata.io/api/1/news?country=${props.country}&category=${props.category}&apikey=pub_17627c5285faff7a24f7478683aec094f887e`;
+    const url = `https://api.nytimes.com/svc/news/v3/content/all/${props.category}.json/limit=${props.pageSize}/offset=${page}?api-key=${props.apiKey}`;
 
     setLoading(true);
     let data = await fetch(url);
@@ -48,8 +49,7 @@ export default function News(props) {
     props.setProgress(70);
 
     setArticles(parsedData.results);
-    setPage(parsedData.nextPage)
-    setTotalResults(parsedData.totalResults);
+    setTotalResults(parsedData.num_results);
     setLoading(false);
 
     props.setProgress(100);
@@ -61,6 +61,7 @@ export default function News(props) {
     //eslint-disable-next-line
   }, []);
 
+  /// --| NewsApi |-- ///
   // const fetchMoreData = async () => {
   //   const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page + 1}&pageSize=${props.pageSize}`;
 
@@ -72,15 +73,16 @@ export default function News(props) {
   //   setTotalResults(parsedData.totalResults);
   // }
 
+  /// --| NY Times Api |-- ///
   const fetchMoreData = async () => {
-    const url = `https://newsdata.io/api/1/news?country=${props.country}&category=${props.category}&page=${page}&apikey=pub_17627c5285faff7a24f7478683aec094f887e`;
+    const url = `https://api.nytimes.com/svc/news/v3/content/all/${props.category}.json/limit=${props.pageSize}/offset=${page + 8}?api-key=${props.apiKey}`;
 
+    setPage(page + 8);
     let data = await fetch(url);
     let parsedData = await data.json();
 
-    setPage(parsedData.nextPage);
     setArticles(articles.concat(parsedData.results));
-    setTotalResults(parsedData.totalArticles);
+    setTotalResults(parsedData.num_results);
   }
 
   // const handlePrevClick = async () => {
@@ -101,8 +103,10 @@ export default function News(props) {
     <>
       <div className='container my-5'>
         <div>
+          {/* NewsApi */}
           {/* <h3 className='mb-4 mainHeading'>{props.category === 'general' ? 'The Gazette - Top News Headlines' : `The Gazette - Top ${capitalizeFirstLetter(props.category)} Headlines`}</h3> */}
 
+          {/* NY Times Api */}
           <h3 className='mb-4 mainHeading'>{props.category === 'world' ? 'The Gazette - Top News Headlines' : `The Gazette - Top ${capitalizeFirstLetter(props.category)} Headlines`}</h3>
         </div>
 
@@ -114,6 +118,7 @@ export default function News(props) {
           hasMore={articles.length < totalResults}
           loader={<Spinner />}>
 
+          {/* NewsApi */}
           {/* <div className="container">
             <div className='row'>
               {articles.map((element) => {
@@ -121,18 +126,19 @@ export default function News(props) {
                   <NewsItem title={element.title} description={element.description ? element.description.slice(0, 70) : element.description} imageUrl={element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt} source={element.source.name} badgeColor={props.badgeColor} />
                 </div>
               })}
-            </div> */}
+            </div>
+          </div> */}
 
+          {/* NY Times Api */}
           <div className="container">
             <div className='row'>
               {articles.map((element) => {
-                return <div className="col-lg-3 col-md-4 col-sm-6 col-12" key={element.link}>
-                  <NewsItem title={element.title} description={element.description ? element.description.slice(0, 70) : element.description} imageUrl={element.image_url} newsUrl={element.link} author={element.creator} date={element.pubDate} source={element.source_id} badgeColor={props.badgeColor} />
+                return <div className="col-lg-3 col-md-4 col-sm-6 col-12" key={element.url}>
+                  <NewsItem title={element.title} description={element.abstract ? element.abstract.slice(0, 70) : element.abstract} imageUrl={element.multimedia !== null ? element.multimedia.find(img => img.format === 'mediumThreeByTwo440').url : null} newsUrl={element.url} author={element.byline} date={element.published_date} source={element.source} badgeColor={props.badgeColor} />
                 </div>
               })}
             </div>
           </div>
-
         </InfiniteScroll>
 
         {/* {!loading && <hr className='mx-3' />}
@@ -145,20 +151,40 @@ export default function News(props) {
   )
 }
 
+/// --| NewsApi |-- ///
+// News.defaultProps = {
+//   pageSize: 8,
+//   country: 'us',
+//   category: 'general',
+//   author: 'Anonymous',
+//   date: 'Unknown',
+//   source: 'Unknown'
+// }
+
+// News.propTypes = {
+//   pageSize: PropTypes.number,
+//   country: PropTypes.string,
+//   category: PropTypes.string,
+//   author: PropTypes.string,
+//   date: PropTypes.string,
+//   source: PropTypes.string
+// }
+
+ /// --| NY Times Api |-- ///
 News.defaultProps = {
   pageSize: 8,
-  country: 'us',
-  category: 'general',
-  author: 'author',
-  date: 'unknown'
+  category: 'world',
+  author: 'Anonymous',
+  date: 'Unknown',
+  source: 'New York Times'
 }
 
 News.propTypes = {
   pageSize: PropTypes.number,
-  country: PropTypes.string,
   category: PropTypes.string,
   author: PropTypes.string,
-  date: PropTypes.string
+  date: PropTypes.string,
+  source: PropTypes.string
 }
 
 
