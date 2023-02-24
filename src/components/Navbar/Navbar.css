@@ -33,7 +33,6 @@ a.nav-link.active::after {
     background-color: #0087ca;
   }
 
-
 #scrollContent {
     display: flex;
     justify-content: flex-start;
@@ -134,7 +133,7 @@ a.nav-link.active::after {
 
 #subNavContainer.active {
     background-color: #212529 !important; 
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.35);
 }
 
 #subNavContainer.active li .nav-link {
@@ -145,9 +144,13 @@ a.nav-link.active::after {
     color: white !important;
 }
 
-.navbar-toggler:focus {
-    text-decoration: none;
-    outline: 0;
+.navbar-toggler:focus, .navbar-toggler:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.navbar-toggler:active {
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15) !important;
 }
 
 @media screen and (max-width: 760px) {
@@ -160,22 +163,47 @@ a.nav-link.active::after {
     }
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 990px) {
     .nameHeading {
-        font-size: 38px;
+        position: relative;
+        top: -2px;
     }
 
     .date {
+        position: relative;
+        top: -7px;
+    }
+
+    .trending {
+        position: relative;
+        top: -2px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .nameHeading {
+        position: relative;
+        font-size: 38px;
+        top: 3px;
+    }
+
+    .date {
+        position: relative;
         font-size: 15px;
+        top: -2px;
     }
 
     .newsTickerHeading {
-        font-size: 15px;
-        padding-left: 1.5rem !important;
-        padding-right: 1.5rem !important;
+        padding-left: 1.3rem !important;
+        padding-right: 1.3rem !important;
     }
 
     .newsTicker {
         font-size: 13px;
+    }
+
+    .mainHeading {
+        font-size: 27px !important;
+        text-align: center;
     }
 }

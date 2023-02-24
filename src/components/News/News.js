@@ -134,7 +134,7 @@ export default function News(props) {
             <div className='row'>
               {articles.map((element) => {
                 return <div className="col-lg-3 col-md-4 col-sm-6 col-12" key={element.url}>
-                  <NewsItem title={element.title} description={element.abstract ? element.abstract.slice(0, 70) : element.abstract} imageUrl={element.multimedia !== null ? element.multimedia.find(img => img.format === 'mediumThreeByTwo440').url : null} newsUrl={element.url} author={element.byline} date={element.published_date} source={element.source} badgeColor={props.badgeColor} />
+                  <NewsItem title={element.title} description={element.abstract ? element.abstract.slice(0, 70) : element.abstract} imageUrl={element.multimedia !== null ? element.multimedia.find(img => img.format === 'mediumThreeByTwo440').url : null} newsUrl={element.url} author={element.byline} date={element.published_date} source={element.des_facet !== null ? element.des_facet[0] : element.subsection} badgeColor={props.badgeColor} />
                 </div>
               })}
             </div>

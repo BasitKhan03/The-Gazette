@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import './Navbar.css'
 import { FaCloudMoonRain, FaFacebookSquare, FaTwitterSquare, FaThumbtack, FaBars } from 'react-icons/fa'
+import { ImNewspaper } from 'react-icons/im'
 import { NavLink } from 'react-router-dom'
 
 export default function Navbar() {
@@ -28,8 +29,12 @@ export default function Navbar() {
       setNavbar(false);
     }
   }
-
   window.addEventListener('scroll', changeNavbarBackground);
+
+  const collapseRef = useRef(null);
+  const hideBars = () => {
+    collapseRef.current.setAttribute("class", "navbar-collapse collapse");
+  };
 
   return (
     <>
@@ -57,30 +62,30 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-      <div className={`border-bottom border-top bg-white sticky-top ${navbar ? 'active' : ''}`} id="subNavContainer">
+      <div className={`bg-white sticky-top ${navbar ? 'active' : ''}`} id="subNavContainer">
         <nav className="navbar navbar-expand-md">
           <div className="container-fluid">
-            <button className={`navbar-toggler mx-auto ${navbar?'dark':''}`} type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <FaBars style={{ fontSize: '15px', position: 'relative', top: '-3px' }} />
+            <button className={`navbar-toggler mx-auto ${navbar ? 'dark':  ''}`} type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <FaBars style={{ fontSize: '16px', position: 'relative', top: '-3px' }} />
             </button>
-            <div className="collapse navbar-collapse" id="navbarNavDropdown">
+            <div ref={collapseRef} className="collapse navbar-collapse" id="navbarNavDropdown">
               <ul className="navbar-nav mx-auto">
-                <li className="nav-item text-center"><NavLink activeClassName="active" className="nav-link mx-2 hover-underline-animation" aria-current="page" to="/">News</NavLink></li>
-                <li className="nav-item text-center"><NavLink activeClassName="active" className="nav-link mx-2 hover-underline-animation" to="/business">Business</NavLink></li>
-                <li className="nav-item text-center"><NavLink activeClassName="active" className="nav-link mx-2 hover-underline-animation" to="/entertainment">Entertainment</NavLink></li>
-                <li className="nav-item text-center"><NavLink activeClassName="active" className="nav-link mx-2 hover-underline-animation" to="/health">Health</NavLink></li>
-                <li className="nav-item text-center"><NavLink activeClassName="active" className="nav-link mx-2 hover-underline-animation" to="/science">Science</NavLink></li>
-                <li className="nav-item text-center"><NavLink activeClassName="active" className="nav-link mx-2 hover-underline-animation" to="/sports">Sports</NavLink></li>
-                <li className="nav-item text-center"><NavLink activeClassName="active" className="nav-link mx-2 hover-underline-animation" to="/technology">Technology</NavLink></li>
+                <li className="nav-item text-center"><NavLink onClick={hideBars} activeClassName="active" className="nav-link mx-2 hover-underline-animation" aria-current="page" to="/">News</NavLink></li>
+                <li className="nav-item text-center"><NavLink onClick={hideBars} activeClassName="active" className="nav-link mx-2 hover-underline-animation" to="/business">Business</NavLink></li>
+                <li className="nav-item text-center"><NavLink onClick={hideBars} activeClassName="active" className="nav-link mx-2 hover-underline-animation" to="/entertainment">Entertainment</NavLink></li>
+                <li className="nav-item text-center"><NavLink onClick={hideBars} activeClassName="active" className="nav-link mx-2 hover-underline-animation" to="/health">Health</NavLink></li>
+                <li className="nav-item text-center"><NavLink onClick={hideBars} activeClassName="active" className="nav-link mx-2 hover-underline-animation" to="/science">Science</NavLink></li>
+                <li className="nav-item text-center"><NavLink onClick={hideBars} activeClassName="active" className="nav-link mx-2 hover-underline-animation" to="/sports">Sports</NavLink></li>
+                <li className="nav-item text-center"><NavLink onClick={hideBars} activeClassName="active" className="nav-link mx-2 hover-underline-animation" to="/technology">Technology</NavLink></li>
               </ul>
             </div>
           </div>
         </nav>
       </div>
 
-      <div className="border-bottom d-flex">
+      <div className="border-top border-bottom d-flex">
         <div>
-          <div className="py-2 px-5 bg-danger text-white newsTickerHeading">Updates</div>
+          <div className="py-2 px-5 bg-danger text-white newsTickerHeading">{window.screen.width <= 400 ? <ImNewspaper style={{fontSize: '16px'}}/> : `Updates`}</div>
         </div>
         <div className="px-1" style={{ overflow: 'hidden' }}>
           <div id="scrollContent" className="text-secondary bg-light">
