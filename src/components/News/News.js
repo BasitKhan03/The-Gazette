@@ -75,9 +75,9 @@ export default function News(props) {
 
   /// --| NY Times Api |-- ///
   const fetchMoreData = async () => {
-    const url = `https://api.nytimes.com/svc/news/v3/content/all/${props.category}.json/limit=${props.pageSize}/offset=${page + 8}?api-key=${props.apiKey}`;
+    const url = `https://api.nytimes.com/svc/news/v3/content/all/${props.category}.json/limit=${props.pageSize}/offset=${window.screen.width <= 400 ? page + 4 : page + 8}?api-key=${props.apiKey}`;
 
-    setPage(page + 8);
+    window.screen.width <= 400 ? setPage(page + 4) : setPage(page + 8);
     let data = await fetch(url);
     let parsedData = await data.json();
 
