@@ -80,8 +80,8 @@ a.nav-link.active::after {
 }
 
 .sideHeading {
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-size: 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
 }
 
 .newsTicker {

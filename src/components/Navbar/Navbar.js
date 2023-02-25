@@ -56,7 +56,7 @@ export default function Navbar() {
               <div className="text-secondary text-warning date">{currentDate}</div>
             </div>
             <div className="col-lg-3 col-md-3 text-end d-none d-md-block">
-              <input className="form-control" placeholder="Search" />
+              <input className="form-control" placeholder="Search" style={{borderRadius: '3px', fontFamily: 'Open Sans', fontSize: '13px'}} />
               <div className="mt-2 sideHeading text-light trending"><strong className='text-danger'>Trending :</strong> Big story tonight</div>
             </div>
           </div>
@@ -65,8 +65,8 @@ export default function Navbar() {
       <div className={`bg-white sticky-top ${navbar ? 'active' : ''}`} id="subNavContainer">
         <nav className="navbar navbar-expand-md">
           <div className="container-fluid">
-            <button className={`navbar-toggler mx-auto ${navbar ? 'dark':  ''}`} type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <FaBars style={{ fontSize: '16px', position: 'relative', top: '-3px' }} />
+            <button className={`navbar-toggler mx-auto ${navbar ? 'dark' : ''}`} type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <FaBars style={{ fontSize: '16px', position: 'relative', top: '-2.5px' }} />
             </button>
             <div ref={collapseRef} className="collapse navbar-collapse" id="navbarNavDropdown">
               <ul className="navbar-nav mx-auto">
@@ -85,7 +85,7 @@ export default function Navbar() {
 
       <div className="border-top border-bottom d-flex">
         <div>
-          <div className="py-2 px-5 bg-danger text-white newsTickerHeading">{window.screen.width <= 400 ? <ImNewspaper style={{fontSize: '16px'}}/> : `Updates`}</div>
+          <div className="py-2 px-5 bg-danger text-white newsTickerHeading">{window.screen.width <= 400 ? <ImNewspaper style={{ fontSize: '16px' }} /> : `Updates`}</div>
         </div>
         <div className="px-1" style={{ overflow: 'hidden' }}>
           <div id="scrollContent" className="text-secondary bg-light">
