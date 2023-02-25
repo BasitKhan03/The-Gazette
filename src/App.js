@@ -7,7 +7,8 @@ import LoadingBar from 'react-top-loading-bar'
 
 export default function App() {
   // const country = 'us';
-  const pageSize = 8;
+  let pageSize = 0;
+  window.screen.width <= 400 ?  pageSize = 4 : pageSize = 8;
   const apiKey = process.env.REACT_APP_NEW_API_2
   const [progress, setProgress] = useState(0);
 
