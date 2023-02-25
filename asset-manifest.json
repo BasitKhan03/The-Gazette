@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/The-Gazette/static/css/main.4d723da3.css",
-    "main.js": "/The-Gazette/static/js/main.45fb81c4.js",
+    "main.css": "/The-Gazette/static/css/main.b7731c1d.css",
+    "main.js": "/The-Gazette/static/js/main.a9c8e895.js",
     "static/js/787.28cb0dcd.chunk.js": "/The-Gazette/static/js/787.28cb0dcd.chunk.js",
     "index.html": "/The-Gazette/index.html",
-    "main.4d723da3.css.map": "/The-Gazette/static/css/main.4d723da3.css.map",
-    "main.45fb81c4.js.map": "/The-Gazette/static/js/main.45fb81c4.js.map",
+    "main.b7731c1d.css.map": "/The-Gazette/static/css/main.b7731c1d.css.map",
+    "main.a9c8e895.js.map": "/The-Gazette/static/js/main.a9c8e895.js.map",
     "787.28cb0dcd.chunk.js.map": "/The-Gazette/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4d723da3.css",
-    "static/js/main.45fb81c4.js"
+    "static/css/main.b7731c1d.css",
+    "static/js/main.a9c8e895.js"
   ]
 }
