@@ -9,8 +9,7 @@ export default function App() {
   // const country = 'us';
   let pageSize = 0;
   window.screen.width <= 400 ?  pageSize = 4 : pageSize = 8;
-  //const apiKey = process.env.REACT_APP_NEW_API_2
-  const apiKey = 'Gx8iSkj47I89vPx1f1CFmXShFHSjG5uf';
+  const apiKey = process.env.REACT_APP_NEW_API_2
   const [progress, setProgress] = useState(0);
 
   return (
