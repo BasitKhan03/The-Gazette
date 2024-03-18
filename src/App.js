@@ -38,7 +38,7 @@ export default function App() {
             <Route exact path="/business" element={<News setProgress={setProgress} apiKey={apiKey} key='business' pageSize={pageSize} category='business' badgeColor='success' />} />
             <Route exact path="/entertainment" element={<News setProgress={setProgress} apiKey={apiKey} key='entertainment' pageSize={pageSize} category='movies' badgeColor='danger' />} />
             <Route exact path="/health" element={<News setProgress={setProgress} apiKey={apiKey} key='health' pageSize={pageSize} category='health' badgeColor='info' />} />
-            <Route exact path="/science" element={<News setProgress={setProgress} apiKey={apiKey} key='science' pageSize={pageSize} category='science' badgeColor='primary' />} />
+            <Route exact path="/science" element={<News setProgress={setProgress} apiKey={apiKey} key='science' pageSize={pageSize} category='automobiles' badgeColor='primary' />} />
             <Route exact path="/sports" element={<News setProgress={setProgress} apiKey={apiKey} key='sports' pageSize={pageSize} category='sports' badgeColor='light' />} />
             <Route exact path="/technology" element={<News setProgress={setProgress} apiKey={apiKey} key='technology' pageSize={pageSize} category='technology' badgeColor='dark' />} />
           </Routes>
