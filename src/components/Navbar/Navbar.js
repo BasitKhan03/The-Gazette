@@ -125,7 +125,7 @@ export default function Navbar() {
                 style={{
                   fontSize: "16px",
                   position: "relative",
-                  top: "-2.5px",
+                  top: "-2px",
                 }}
               />
             </button>

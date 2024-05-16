@@ -155,14 +155,6 @@ a.nav-link.active::after {
   box-shadow: none !important;
 }
 
-.navbar-toggler:active {
-  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15) !important;
-}
-
-#subNavContainer button.dark:active {
-  box-shadow: 1px 1px 4px rgba(255, 255, 255, 0.15) !important;
-}
-
 @media screen and (max-width: 760px) {
   .navbar .nav-link {
     font-size: 15px;
