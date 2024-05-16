@@ -1,209 +1,219 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=El+Messiri&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Mukta+Mahee&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=El+Messiri&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mukta+Mahee&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 a.nav-link {
-    color: #343434;
-    text-decoration: none;
-    min-width: 80px;
-    text-align: center;
+  color: #343434;
+  text-decoration: none;
+  min-width: 80px;
+  text-align: center;
 }
 
 a.nav-link.active {
-    color: #260649;
-    font-weight: 700;
+  color: #260649;
+  font-weight: 700;
 }
 
 a.nav-link.active::after {
-    content: '';
-    position: absolute;
-    width: 90%;
-    transform: scaleX(1);
-    height: 2px;
-    top: 33px;
-    left: 5px;
-    background-color: #0087ca;
-  }
-
-#scrollContent {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    white-space: nowrap
+  content: "";
+  position: absolute;
+  width: 90%;
+  transform: scaleX(1);
+  height: 2px;
+  top: 33px;
+  left: 5px;
+  background-color: #0087ca;
 }
 
-#scrollContent>div {
-    display: flex;
-    animation: textScrollEffect 12s infinite linear
+#scrollContent {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  white-space: nowrap;
+}
+
+#scrollContent > div {
+  display: flex;
+  animation: textScrollEffect 12s infinite linear;
 }
 
 @keyframes textScrollEffect {
-    from {
-        transform: translateX(0%)
-    }
+  from {
+    transform: translateX(0%);
+  }
 
-    to {
-        transform: translateX(-50%)
-    }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .fontOpenSans {
-    font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 .topNav {
-    height: 113px;
+  height: 113px;
 }
 
 .nameHeading {
-    font-family: 'El Messiri', sans-serif;
-    font-size: 42px;
-    font-weight: 500;
-    margin-top: 4px;
-    position: relative;
-    top: 1px;
+  font-family: "El Messiri", sans-serif;
+  font-size: 42px;
+  font-weight: 500;
+  margin-top: 4px;
+  position: relative;
+  top: 1px;
 }
 
 .date {
-    position: relative;
-    top: -3px;
+  position: relative;
+  top: -3px;
 }
 
 .sideHeading {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 13px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
 }
 
 .newsTicker {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 15px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
 }
 
 .newsTickerHeading {
-    font-family: 'Mukta Mahee', sans-serif;
-    font-weight: 500;
+  font-family: "Mukta Mahee", sans-serif;
+  font-weight: 500;
 }
 
 .nav-link {
-    font-family: 'Mukta Mahee', sans-serif;
+  font-family: "Mukta Mahee", sans-serif;
 }
 
 .hover-underline-animation {
-    display: inline-block;
-    position: relative;
-    color: #0087ca;
-  }
-  
-  .hover-underline-animation::after {
-    content: '';
-    position: absolute;
-    width: 90%;
-    transform: scaleX(0);
-    height: 2px;
-    top: 33px;
-    left: 5px;
-    background-color: #0087ca;
-    transform-origin: bottom right;
-    transition: transform 0.25s ease-out;
-  }
-  
-  .hover-underline-animation:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-  }
+  display: inline-block;
+  position: relative;
+  color: #0087ca;
+}
+
+.hover-underline-animation::after {
+  content: "";
+  position: absolute;
+  width: 90%;
+  transform: scaleX(0);
+  height: 2px;
+  top: 33px;
+  left: 5px;
+  background-color: #0087ca;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
 
 .form-control {
-    font-size: 0.9rem;
+  font-size: 0.9rem;
 }
 
 .trending {
-    position: relative;
-    top: 3px;
+  position: relative;
+  top: 3px;
 }
 
 #subNavContainer.active {
-    background-color: #212529 !important; 
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.35);
+  background-color: #212529 !important;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.35);
 }
 
 #subNavContainer.active li .nav-link {
-    color: white;
+  color: white;
 }
 
 #subNavContainer button.dark {
-    color: white !important;
+  color: white !important;
 }
 
-.navbar-toggler:focus, .navbar-toggler:active {
-    outline: none !important;
-    box-shadow: none !important;
+.navbar button {
+  outline: none;
+  border: none;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 .navbar-toggler:active {
-    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15) !important;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15) !important;
+}
+
+#subNavContainer button.dark:active {
+  box-shadow: 1px 1px 4px rgba(255, 255, 255, 0.15) !important;
 }
 
 @media screen and (max-width: 760px) {
-    .navbar .nav-link {
-        font-size: 15px;
-    }
+  .navbar .nav-link {
+    font-size: 15px;
+  }
 
-    #navbarNavDropdown {
-        margin-top: 3px;
-    }
+  #navbarNavDropdown {
+    margin-top: 3px;
+  }
 }
 
 @media screen and (max-width: 990px) {
-    .nameHeading {
-        position: relative;
-        top: -2px;
-    }
+  .nameHeading {
+    position: relative;
+    top: -2px;
+  }
 
-    .date {
-        position: relative;
-        top: -7px;
-    }
+  .date {
+    position: relative;
+    top: -7px;
+  }
 
-    .trending {
-        position: relative;
-        top: -2px;
-    }
+  .trending {
+    position: relative;
+    top: -2px;
+  }
 }
 
 @media screen and (max-width: 400px) {
-    .nameHeading {
-        position: relative;
-        font-size: 38px;
-        top: 3px;
-    }
+  .nameHeading {
+    position: relative;
+    font-size: 38px;
+    top: 3px;
+  }
 
-    .date {
-        position: relative;
-        font-size: 15px;
-        top: -2px;
-    }
+  .date {
+    position: relative;
+    font-size: 15px;
+    top: -2px;
+  }
 
-    .newsTickerHeading {
-        padding-left: 1.3rem !important;
-        padding-right: 1.3rem !important;
-    }
+  .newsTickerHeading {
+    padding-left: 1.3rem !important;
+    padding-right: 1.3rem !important;
+  }
 
-    .newsTicker {
-        font-size: 13px;
-    }
+  .newsTicker {
+    font-size: 13px;
+  }
 
-    .mainHeading {
-        font-size: 27px !important;
-        text-align: center;
-    }
+  .mainHeading {
+    font-size: 27px !important;
+    text-align: center;
+  }
 }
