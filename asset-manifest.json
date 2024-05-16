@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/The-Gazette/static/css/main.32510547.css",
-    "main.js": "/The-Gazette/static/js/main.e3b0aba7.js",
+    "main.css": "/The-Gazette/static/css/main.9f6901ad.css",
+    "main.js": "/The-Gazette/static/js/main.a08d3a57.js",
     "static/js/787.d4aba7ab.chunk.js": "/The-Gazette/static/js/787.d4aba7ab.chunk.js",
     "static/media/error-504.jpg": "/The-Gazette/static/media/error-504.d6f17d3cc29e521ee149.jpg",
     "index.html": "/The-Gazette/index.html",
-    "main.32510547.css.map": "/The-Gazette/static/css/main.32510547.css.map",
-    "main.e3b0aba7.js.map": "/The-Gazette/static/js/main.e3b0aba7.js.map",
+    "main.9f6901ad.css.map": "/The-Gazette/static/css/main.9f6901ad.css.map",
+    "main.a08d3a57.js.map": "/The-Gazette/static/js/main.a08d3a57.js.map",
     "787.d4aba7ab.chunk.js.map": "/The-Gazette/static/js/787.d4aba7ab.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.32510547.css",
-    "static/js/main.e3b0aba7.js"
+    "static/css/main.9f6901ad.css",
+    "static/js/main.a08d3a57.js"
   ]
 }
