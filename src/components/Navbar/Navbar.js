@@ -143,7 +143,7 @@ export default function Navbar() {
                     aria-current="page"
                     to="/"
                   >
-                    News
+                    World
                   </NavLink>
                 </li>
                 <li className="nav-item text-center">

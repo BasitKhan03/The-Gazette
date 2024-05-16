@@ -89,11 +89,14 @@ export default function News(props) {
       <div className="container my-5">
         <div className="px-4 px-md-0">
           <h3 className={`${error ? "mb-3" : "mb-4"} mainHeading`}>
-            {props.category === "world"
-              ? "The Gazette - Top News Headlines"
-              : `The Gazette - Top ${capitalizeFirstLetter(
-                  props.category
-                )} Headlines`}
+            {props.category === "world" && "The Gazette - Top News Headlines"}
+            {props.category === "movies" &&
+              "The Gazette - Top Entertainment Headlines"}
+            {props.category !== "world" &&
+              props.category !== "movies" &&
+              `The Gazette - Top ${capitalizeFirstLetter(
+                props.category
+              )} Headlines`}
           </h3>
         </div>
 
